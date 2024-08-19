@@ -85,8 +85,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
-vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, { desc = "Trigger [A]ction for quick fix" })
-
+vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, { desc = "Trigger [A]ction for quick fix" })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -826,23 +825,66 @@ require("lazy").setup({
 		end,
 	},
 
-  {
-    "theprimeagen/harpoon",
-    branch = "harpoon2",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("harpoon"):setup()
-    end,
-    keys = {
-      { "<leader>A", function() require("harpoon"):list():append() end, desc = "harpoon file", },
-      { "<leader>a", function() local harpoon = require("harpoon") harpoon.ui:toggle_quick_menu(harpoon:list()) end, desc = "harpoon quick menu", },
-      { "<leader>1", function() require("harpoon"):list():select(1) end, desc = "harpoon to file 1", },
-      { "<leader>2", function() require("harpoon"):list():select(2) end, desc = "harpoon to file 2", },
-      { "<leader>3", function() require("harpoon"):list():select(3) end, desc = "harpoon to file 3", },
-      { "<leader>4", function() require("harpoon"):list():select(4) end, desc = "harpoon to file 4", },
-      { "<leader>5", function() require("harpoon"):list():select(5) end, desc = "harpoon to file 5", },
-    },
-  },
+	{
+		"theprimeagen/harpoon",
+		branch = "harpoon2",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("harpoon"):setup()
+		end,
+		keys = {
+			{
+				"<leader>hA",
+				function()
+					require("harpoon"):list():append()
+				end,
+				desc = "harpoon file",
+			},
+			{
+				"<leader>ha",
+				function()
+					local harpoon = require("harpoon")
+					harpoon.ui:toggle_quick_menu(harpoon:list())
+				end,
+				desc = "harpoon quick menu",
+			},
+			{
+				"<leader>h1",
+				function()
+					require("harpoon"):list():select(1)
+				end,
+				desc = "harpoon to file 1",
+			},
+			{
+				"<leader>h2",
+				function()
+					require("harpoon"):list():select(2)
+				end,
+				desc = "harpoon to file 2",
+			},
+			{
+				"<leader>h3",
+				function()
+					require("harpoon"):list():select(3)
+				end,
+				desc = "harpoon to file 3",
+			},
+			{
+				"<leader>h4",
+				function()
+					require("harpoon"):list():select(4)
+				end,
+				desc = "harpoon to file 4",
+			},
+			{
+				"<leader>h5",
+				function()
+					require("harpoon"):list():select(5)
+				end,
+				desc = "harpoon to file 5",
+			},
+		},
+	},
 
 	-- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
 	-- init.lua. If you want these files, they are in the repository, so you can just download them and
@@ -889,4 +931,4 @@ require("lazy").setup({
 })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
+-
