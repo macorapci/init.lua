@@ -13,6 +13,7 @@ vim.g.have_nerd_font = false
 --  For more options, you can see `:help option-list`
 
 local set = vim.opt
+vim.cmd('set expandtab')
 set.tabstop = 4
 set.softtabstop = 4
 set.shiftwidth = 4
@@ -147,15 +148,8 @@ require("lazy").setup({
 	-- keys can be used to configure plugin behavior/loading/etc.
 	--
 	-- Use `opts = {}` to force a plugin to be loaded.
-
-	-- which loads which-key before all the UI elements are loaded. Events can be
-	-- normal autocommands events (`:help autocmd-events`).
 	--
-	-- Then, because we use the `config` key, the configuration only runs
-	-- after the plugin has been loaded:
-	--  config = function() ... end
-
-	{ -- Useful plugin to show you pending keybinds.
+  { -- Useful plugin to show you pending keybinds.
 		"folke/which-key.nvim",
 		event = "VimEnter", -- Sets the loading event to 'VimEnter'
 		config = function() -- This is the function that runs, AFTER loading
@@ -173,8 +167,6 @@ require("lazy").setup({
 			})
 		end,
 	},
-
-
 	-- Here is a more advanced example where we pass configuration
 	-- options to `gitsigns.nvim`. This is equivalent to the following Lua:
 	--    require('gitsigns').setup({ ... })
